@@ -22,7 +22,7 @@ if ! git show-ref --verify --quiet refs/heads/$base_branch; then
 fi
 
 # Inform user about the merge operation
-echo "You are about to merge '$current_branch' into '$base_branch' with changes to the '.semaphore' folder ignored."
+echo "You are about to merge '$current_branch' branch into '$base_branch' branch with changes to the '.semaphore' folder ignored."
 read -p "Do you wish to continue? (y/n) " -n 1 -r
 echo    # move to a new line
 
@@ -39,8 +39,8 @@ git reset HEAD -- .semaphore
 git checkout -- .semaphore
 
 # Inform the user of the successful merge
-echo "'$current_branch' is now merged into '$base_branch' with changes to the '.semaphore' folder ignored. You are currently on '$base_branch'. If your work on '$current_branch' is complete, you can continue to work on '$base_branch' and push your code."
+echo "'$current_branch' branch is now merged into '$base_branch' branch with changes to the '.semaphore' folder ignored. You are currently on '$base_branch' branch. If your work on '$current_branch' is complete, you can continue to work on '$base_branch' and push your code."
 
 # Optionally, switch back to the testing branch
 git checkout $current_branch
-echo "Switched back to '$current_branch'. Continue your work or switch to '$base_branch' to push your changes."
+echo "Switched back to '$current_branch' branch. Continue your work or switch to '$base_branch' branch to push your changes."
