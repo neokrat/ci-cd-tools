@@ -57,12 +57,12 @@ fi
 # Perform the merge
 git checkout $base_branch
 git merge --no-ff --no-commit $current_branch
-git reset HEAD -- .semaphore
-git checkout -- .semaphore
+#git reset HEAD -- .semaphore
+git checkout .semaphore
 
 # Inform the user of the successful merge
 echo "'$current_branch' branch is now merged into '$base_branch' branch with changes to the '.semaphore' folder ignored."
 
 # Optionally, switch back to the testing branch
-git checkout $current_branch
-echo "Switched back to '$current_branch' branch. Continue your work or switch to '$base_branch' branch to push your changes."
+#git checkout $current_branch
+#echo "Switched back to '$current_branch' branch. Continue your work or switch to '$base_branch' branch to push your changes."
