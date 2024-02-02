@@ -14,6 +14,7 @@ if [ -n "$current_branch" ]; then
     # Check if the branch already exists
     if git show-ref --verify --quiet "refs/heads/$new_branch"; then
       echo "The branch '$new_branch' already exists."
+      git checkout "$new_branch"
       echo "You've been switched to this branch '$branch_prefix/$current_branch',"
       echo "branched from the original feature branch '$current_branch'."
     else
