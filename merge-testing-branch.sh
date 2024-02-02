@@ -61,7 +61,7 @@ git reset HEAD -- .semaphore
 git checkout -- .semaphore
 
 # Inform the user of the successful merge
-echo "'$current_branch' branch is now merged into '$base_branch' branch with changes to the '.semaphore' folder ignored. You are currently on '$base_branch' branch. If your work on '$current_branch' is complete, you can continue to work on '$base_branch' and push your code."
+echo "'$current_branch' branch is now merged into '$base_branch' branch with changes to the '.semaphore' folder ignored."
 
 # Optionally, switch back to the testing branch
 git checkout $current_branch
