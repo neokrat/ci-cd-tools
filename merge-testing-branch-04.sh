@@ -21,17 +21,6 @@ if ! git show-ref --verify --quiet refs/heads/$base_branch; then
     git branch $base_branch
 fi
 
-# Refresh the local cache of remote branches
-git fetch origin
-
-# Check if there are any local commits that have not been pushed to the remote branch
-local_commits=$(git rev-list --count origin/$current_branch..HEAD)
-
-if [ "$local_commits" -gt 0 ]; then
-    echo "Your branch is ahead of 'origin/$current_branch'. Please push your changes before merging."
-    exit 1
-fi
-
 # Check for uncommitted changes (both staged and unstaged changes)
 if ! git diff --quiet || ! git diff --cached --quiet; then
     echo "You have uncommitted changes. Please commit or stash them before merging."
@@ -41,6 +30,13 @@ fi
 # Check for untracked files
 if [ -n "$(git ls-files --others --exclude-standard)" ]; then
     echo "You have untracked files. Please add and commit them, or add them to .gitignore."
+    exit 1
+fi
+
+# Check if the current branch is ahead of its remote counterpart
+ahead=$(git rev-list --count @{upstream}..HEAD)
+if [ "$ahead" -gt 0 ]; then
+    echo "Your branch is ahead of 'origin/$current_branch'. Please push your changes before merging."
     exit 1
 fi
 
