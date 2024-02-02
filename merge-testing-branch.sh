@@ -59,6 +59,7 @@ git checkout $base_branch
 git merge --no-ff --no-commit $current_branch
 git reset HEAD -- .semaphore
 git checkout .semaphore
+git commit -m "Merged $current_branch branch into $base_branch branch"
 
 # Inform the user of the successful merge
 echo "'$current_branch' branch is now merged into '$base_branch' branch with changes to the '.semaphore' folder ignored."
