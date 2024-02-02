@@ -57,7 +57,7 @@ fi
 # Perform the merge
 git checkout $base_branch
 git merge --no-ff --no-commit $current_branch
-#git reset HEAD -- .semaphore
+git reset HEAD -- .semaphore
 git checkout .semaphore
 
 # Inform the user of the successful merge
