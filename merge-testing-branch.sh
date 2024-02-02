@@ -65,5 +65,5 @@ git commit -m "Merged $current_branch branch into $base_branch branch"
 echo "'$current_branch' branch is now merged into '$base_branch' branch with changes to the '.semaphore' folder ignored."
 
 # Optionally, switch back to the testing branch
-#git checkout $current_branch
-#echo "Switched back to '$current_branch' branch. Continue your work or switch to '$base_branch' branch to push your changes."
+git checkout $current_branch
+echo "Switched back to '$current_branch' branch. Continue your work or switch to '$base_branch' branch to push your changes."
