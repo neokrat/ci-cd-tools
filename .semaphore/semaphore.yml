@@ -3,3 +3,4 @@ foo1:
 foo2:
   bar2: bar value 2
 added_by_testing_branch:
+  fb-3: 1
