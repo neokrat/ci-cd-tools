@@ -19,9 +19,9 @@ base_branch=${current_branch#$testing_prefix}
 if ! git show-ref --verify --quiet refs/heads/$base_branch; then
     # Create the base branch and switch back to the testing branch
     git branch $base_branch
-    echo "Base branch '$base_branch' created. Continuing with actions on '$current_branch' branch."
+#    echo "Base branch '$base_branch' created. Continuing with actions on '$current_branch' branch."
 else
-    echo "Base branch '$base_branch' already exists. Continuing with actions on '$current_branch' branch."
+#    echo "Base branch '$base_branch' already exists. Continuing with actions on '$current_branch' branch."
 fi
 
 # Inform user about the merge operation
@@ -31,7 +31,7 @@ echo    # move to a new line
 
 if [[ ! $REPLY =~ ^[Yy]$ ]]
 then
-    echo "Merge aborted. You can continue to work on '$current_branch'."
+    echo "Merge aborted. You can continue to work on '$current_branch' branch."
     exit 1
 fi
 
